@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>jQuery</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=792, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="libs/shower/themes/bright/styles/screen.css">
+  <link rel="stylesheet" href="libs/highlight/styles/default.css">
+  <link rel="stylesheet" type="text/css" href="css/960gs.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="list">
+<header class="caption">
+      <h1>Introdução a Sistemas Web</h1>
+      <p>Desenvolvimento de Aplicativos Web - COLTEC/MG</p>
+    </header>
+    <section class="slide cover" id="Cover">
+      <div>
+        <h2>Introdução a Sistemas Web</h2>
+        <p>João Eduardo Montandon</p>
+        <p>Desenvolvimento de Aplicativos Web - COLTEC/MG</p>
+        <img src="images/wallpaper_coltec_wide.png" alt="" />
+
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h1>O que acontece quando abrimos uma página web??</h1>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <img src="images/static-web.png" style="max-width: 100%;" alt="" />
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Protocolo HTTP</h2>
+        <ul>
+          <li>Hypertext Transfer Protocol (Protocolo de Transferência de Hipertexto)</li>
+          <li>Protocolo que lida com o modelo de requisição/resposta utilizado para comunicação na Web</li>
+          <li>Executado sobre o protocolo TCP/IP</li>
+        </ul>
+        <p style="text-align: center">
+          <b>Modelo Resquest/Response: Usuário envia uma requisição, e recebe uma resposta.</b>
+        </p>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Protocolo HTTP: Características</h2>
+        
+        <p><em><b>Stateless:</b></em> Requisições Independentes <small>(Não mantém "histórico" de execução)</small> </p>
+        <p>Comunicação: Segue modelo <b>Request/Response</b> <small>("troca de mensagens" entre cliente e servidor)</small></p>
+        <ul>
+          <li><b>Request:</b> Requisição envada pelo usuário para o servidor</li>
+          <li><b>Response:</b> Resposta do servidor para o usuário</li>
+        </ul>
+      </div>
+    </section>
+    <section class="slide">
+      <div class="container_12">
+        <h2>HTTP Request</h2>
+        <p>Responsável por enviar a requisição ao servidor</p>
+        <ul>
+          <li>Composto por três parâmetros principais:</li>
+          <ul>
+            <li>A página a ser acessada (url)</li>
+            <li>Parâmetros do usuário</li>
+            <li>Método HTTP (a ação a ser executada)</li>
+          </ul>
+        </ul>
+      </div>
+    </section>
+    <section class="slide">
+      <div class="container_12">
+        <h2>HTTP Request</h2>
+        <pre>
+          <code><mark>GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1</mark>
+Host: net.tutsplus.com
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-us,en;q=0.5
+Accept-Encoding: gzip,deflate
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+Keep-Alive: 300
+Connection: keep-alive
+<mark>Cookie: PHPSESSID=r2t5uvjq435r4q7ib3vtdjq120</mark>
+Pragma: no-cache
+Cache-Control: no-cache
+          </code>
+        </pre>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Métodos HTTP</h2>
+        <p>Define a ação que será executada no servidor no momento do recebimento da requisição</p>
+        <ul>
+            <li><mark><code>GET</code>: Leitura de informação</mark></li>
+            <li><mark><code>POST</code>: Armazenamento de informação</mark></li>
+            <li><code>PUT</code>: Atualização de informação</li>
+            <li><code>DELETE</code>: Exclusão de informação</li>
+        </ul>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Métodos HTTP: <code>GET</code></h2>
+        <ul>
+            <li>Utilizado para operações de leitura, recuperação de informação</li>
+            <li>
+              Pode-se enviar dados através do GET, porém não é aconselhável:
+              <ol>
+                <li>Quantidade de caracteres é limitada</li>
+                <li>Os dados são enviados via URL, tornando as informações públicas</li>
+              </ol>
+            </li>
+        </ul>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Métodos HTTP: <code>GET</code></h2>
+        <img src="images/get-header.png" style="max-width:90%;" alt="" />
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Métodos HTTP: <code>POST</code></h2>
+        <ul>
+          <li>Diferentemente do GET, possui recursos para transferência segura de informações</li>
+          <li>As informações são enviadas no corpo da requisição</li>
+          <li>Utilizado para persistência de informações</li>
+        </ul>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Métodos HTTP: <code>POST</code></h2>
+        <img src="images/post-header.png" alt="" style="max-width:80%;" />
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>HTTP: Response</h2>
+        <p>
+          Resposta proveniente do servidor
+        </p>
+        <p>
+          Contém cabeçalho com informações gerais da resposta
+        </p>
+        <p>
+          Corpo compreende o conteúdo da resposta em si
+        </p>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>HTTP: Response</h2>
+        <ul>
+          <li>Composto por três parâmetros principais:</li>
+          <ul>
+            <li>Status (request foi um sucesso?)</li>
+            <li>Content-type (text, picture, HTML, etc.)</li>
+            <li>O conteúdo (HTML, imagens, vídeo, etc)</li>
+          </ul>
+        </ul>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>HTTP: Response</h2>
+        <img src="images/response-header.png" style="max-width:90%;" alt="" />
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>HTTP: Response</h2>
+        <pre>
+          <code><mark>HTTP/1.1 302 Moved Temporarily</mark>
+Content-Type: text/html; charset=UTF-8
+Location: https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://inbox.google.com/&followup=https://inbox.google.com/
+Strict-Transport-Security: max-age=10886400; includeSubdomains
+P3P: CP="This is not a P3P policy! See https://support.google.com/accounts/answer/151657?hl=en for more info."
+Date: Wed, 01 Jun 2016 15:16:07 GMT
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Server: GSE
+<mark>Set-Cookie: NID=79=L0HNTNZei8q...;Domain=.google.com;Path=/;Expires=Thu, 01-Dec-2016 15:16:07 GMT;HttpOnly</mark>
+          </code> 
+        </pre>
+      </div>
+    </section>
+    <section class="slide">
+      <div class="container_12">
+        <h2>O Problema das Páginas Estáticas</h2>
+        <div class="grid_7">
+          <ul>
+            <li>Um servidor web lida <b>apenas</b> com conteúdo <b>estático</b></li>
+            <li>Isto é, ele apenas retorna recursos já existentes no servidor</li>
+            <li>Todo cliente recupera o mesmo recurso</li>
+          </ul>
+        </div>
+        <div class="grid_5">
+          <img src="images/servidor.png" style="max-width:100%;" alt="" />
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <div class="container_12">
+        <h2>Aplicações Web</h2>
+        <div class="grid_7">
+          <p>
+            O servidor Web pode delegar essas ações para outra aplicação
+          </p>
+          <p>
+            Essa aplicação auxiliar é conhecida como <b>Servidor de Aplicação Web</b>
+          </p>
+        </div>
+        <div class="grid_5">
+          <img src="images/app-web.png" style="max-width:100%;" alt="" />
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Aplicações Web: Vantagens</h2>
+        <p>
+          Possibilidade de processar informações
+        </p>
+        <p>
+          Capacidade de gerar páginas dinâmicas
+        </p>
+        <p>
+          Funcionamento transparente para o usuário (não sabe o que a aplicação realmente processa)
+        </p>
+      </div>
+    </section>
+    <section class="slide">
+      <div class="container_12">
+        <h2>Aplicações Web: Tecnologias</h2>
+        <div class="grid_6">
+          <p>
+            Java: JSP, JSF.
+          </p>
+          <p>
+            PHP: CakePHP, Drupal, etc.
+          </p>
+          <p>
+            Ruby: Ruby on Rails, Sinatra.
+          </p>
+        </div>
+        <div class="grid_6">
+          <p>
+            Python: Django, Flask, etc.
+          </p>
+          <p>
+            JavaScript: Node.js, Backbone.js, Angular.js, Express.js, etc.
+          </p>
+          <p>
+            Scala, Groovy, Grails,
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="slide">
+      <div>
+        <h2>Referências</h2>
+          <p>
+            BASHAN, B.; SIERRA, K.; Bates, B.; Use a Cabeça: Servlets e JSP, O’Reilly, 2ª Edição, 2011.
+          </p>
+      </div>
+    </section>
+    <p class="badge"><a href="https://github.com/shower/shower">Fork me on Github</a></p>
+    <!-- Barra de progresso, comente se deseja remover da apresentação -->
+  <div class="progress"><div></div></div>
+  <script src="libs/shower/shower.min.js"></script>
+  <script src="libs/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
